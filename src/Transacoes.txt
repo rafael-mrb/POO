@@ -1,0 +1,6 @@
+Receita;200.0;2026-11-08;Venda
+Despesa;20.0;2026-11-08;Compra
+Receita;4000.0;2026-11-08;Salario
+Receita;40.0;2026-11-10;Venda
+Despesa;200.0;2026-11-10;Compras
+Receita;80.0;2026-11-10;Aposta
