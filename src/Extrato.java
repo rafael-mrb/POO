@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Extrato implements Relatorio{
@@ -10,21 +11,24 @@ public class Extrato implements Relatorio{
 
     @Override
     public String gerar(Conta conta){
-        List<Transacao> listaOrdenada = new ArrayList<>(conta.getTransacoes());
+        List<Transacao> listaOrdenada = new ArrayList<>();
+        listaOrdenada.addAll(conta.getTransacoes());
 
-        // Ordena comparando as datas de duas transações (a e b)
-        listaOrdenada.sort((a, b) -> a.getData().compareTo(b.getData()));
+        // Ordena a lista de transações pela data, da mais antiga para a mais recente.
+        listaOrdenada.sort(Comparator.comparing(Transacao::getData));
 
-        // StringBuilder serve para ir juntando vários textos de forma eficiente
-        StringBuilder texto = new StringBuilder();
-        texto.append("=== EXTRATO ===\n");
+        // Cria uma String para armazenar o extrato da conta.
+        String texto = "=== EXTRATO ===\n";
 
+        // Percorre as transações (organizadas por data) e adiciona cada uma a String extrato.
         for (Transacao transacao : listaOrdenada) {
-            texto.append(transacao.toString()).append("\n");
+            texto += transacao.toString() + "\n";
         }
 
-        texto.append(String.format("Saldo: R$ %.2f%n", conta.getSaldo()));
+        // Adiciona o saldo atual da conta ao final do extrato.
+        texto += String.format("Saldo: R$ %.2f%n", conta.getSaldo());
 
-        return texto.toString();
+        // Retorna o extrato completo.
+        return texto;
     }
 }
