@@ -38,7 +38,7 @@ Saldo:      R$ 1300,25
 | --- | --- |
 | Main |	Cria os objetos repositorioTransacao e conta, carrega o histórico e iniciar o menu
 | Menu	| Mostra as opções, lê o que o usuário digita e chama os outros objetos |
-| Conta	| Guarda a lista de transações e calcula o saldo |
+| Conta	| Guarda a lista de transações salvas e calcula o saldo |
 | Transacao |	Define o que toda transação tem (valor, descrição, data) |
 | Receita / Despesa |	Define como cada tipo altera o saldo |
 | Relatorio |	Define o que todo relatório precisa oferecer |
